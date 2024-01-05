@@ -2,6 +2,10 @@
 
  - Create-react-app
  - Configured Tailwind css
+ - Header
+ - Login Form
+ - Sign Up Form
+ 
 
 
 
@@ -21,6 +25,27 @@
      - Search Bar
      - Movie Sugesstions
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# CSS
+  - obsolute(will overlap image, EX - Netflix header logo on top of BG)
+  - bg-gradient-to-b will create gradient top to bottom (from-black)add's the color.
+  - margin is an area you create for your specific component and padding is size of your component inside the margin.
 
      
   
