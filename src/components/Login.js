@@ -1,12 +1,33 @@
-import React, { useState } from 'react'
-import Header from './Header'
+import React, { useRef, useState } from 'react';
+import Header from './Header';
+import { checkValidData } from '../utils/validate';
 
 const Login = () => {
     const [isSignin, setIsSignin] = useState(true);
+    const [isMessage, setIsMessage] = useState(null);
+
+
+    const email = useRef(null);
+    const password = useRef(null);
+    const fullName=useRef(null);
+
+    console.log('rendered');
+
+    const handleClickButton = () => {
+        const currentValues ={
+            email:email.current.value,
+            password:password.current.value,
+            fullName:fullName.current?.value
+        }
+        const errorMessage = checkValidData(currentValues);
+        setIsMessage(errorMessage);
+
+    }
 
     const signinFormToggle = () => {
         setIsSignin(!isSignin)
     }
+
     return (
         <div>
             <Header />
@@ -15,20 +36,24 @@ const Login = () => {
 
             </div>
             <div>
-                <form className="absolute p-12 bg-black bg-opacity-85 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg">
+                <form onSubmit={(e) => e.preventDefault()} className="absolute p-12 bg-black bg-opacity-85 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg">
                     <h1 className="font-bold text-3xl py-4">{isSignin ? "Sign In" : "Sign Up"}</h1>
                     {!isSignin && (
                         <input type="text"
+                            ref={fullName}
                             placeholder="FullName"
-                            className="p-2 my-4 w-full bg-gray-700 rounded-lg" />
+                            className="outline-none p-2 my-4 w-full bg-gray-700 rounded-lg" />
                     )}
                     <input type="text"
+                        ref={email}
                         placeholder="Email"
-                        className="p-2 my-4 w-full bg-gray-700 rounded-lg" />
+                        className="outline-none p-2 my-4 w-full bg-gray-700 rounded-lg" />
                     <input type="password"
+                        ref={password}
                         placeholder="Password"
-                        className="p-2 my-4 w-full  bg-gray-700 rounded-lg" />
-                    <button
+                        className=" outline-none p-2 my-4 w-full  bg-gray-700 rounded-lg" />
+                    <p className="text-red-600 font-bold">{isMessage}</p>
+                    <button onClick={handleClickButton}
                         className="bg-red-600 p-4 my-4 w-full rounded-lg">
                         {isSignin ? "Sign In" : "Sign Up"}
                     </button>
