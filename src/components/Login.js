@@ -1,26 +1,48 @@
 import React, { useRef, useState } from 'react';
 import Header from './Header';
 import { checkValidData } from '../utils/validate';
+import { auth } from '../firebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 
 const Login = () => {
     const [isSignin, setIsSignin] = useState(true);
-    const [isMessage, setIsMessage] = useState(null);
+    const [isErrorMessage, setIsErrorMessage] = useState(null);
 
 
     const email = useRef(null);
     const password = useRef(null);
-    const fullName=useRef(null);
+    const fullName = useRef(null);
 
     console.log('rendered');
 
     const handleClickButton = () => {
-        const currentValues ={
-            email:email.current.value,
-            password:password.current.value,
-            fullName:fullName.current?.value
+        const currentValue = {
+            email: email.current.value,
+            password: password.current.value,
+            fullName: fullName.current?.value
         }
-        const errorMessage = checkValidData(currentValues);
-        setIsMessage(errorMessage);
+        const message = checkValidData(currentValue);
+        setIsErrorMessage(message);
+        if (message) return;
+        if (!isSignin) {
+            createUserWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.customData._tokenResponse.error.code;
+                const errorMessage = error.message
+                setIsErrorMessage(errorCode + " - " + errorMessage)
+            });
+        } else {
+            signInWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorMessage = error.message
+                setIsErrorMessage(errorMessage)
+            })
+        }
+
 
     }
 
@@ -52,7 +74,7 @@ const Login = () => {
                         ref={password}
                         placeholder="Password"
                         className=" outline-none p-2 my-4 w-full  bg-gray-700 rounded-lg" />
-                    <p className="text-red-600 font-bold">{isMessage}</p>
+                    <p className="text-red-600 font-bold">{isErrorMessage}</p>
                     <button onClick={handleClickButton}
                         className="bg-red-600 p-4 my-4 w-full rounded-lg">
                         {isSignin ? "Sign In" : "Sign Up"}
