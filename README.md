@@ -11,6 +11,11 @@
  - Firebase setup
  - Deploying App to Production
  - Create Sign up user account
+ - Implemented Sign in api
+ - Created Redux Store with userSlice
+ - Implemented Sign out 
+ - Update profile api
+ - Fetch movies from TMDB 
 
  
 
@@ -40,7 +45,9 @@
 
 
 
-
+# Redux
+ - npm i -D @reduxjs/toolkit
+ - npm i react-redux
 
 
 

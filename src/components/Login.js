@@ -1,12 +1,18 @@
 import React, { useRef, useState } from 'react';
 import Header from './Header';
 import { checkValidData } from '../utils/validate';
-import { auth } from '../firebaseConfig';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { auth } from '../utils/firebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
 const Login = () => {
     const [isSignin, setIsSignin] = useState(true);
     const [isErrorMessage, setIsErrorMessage] = useState(null);
+    const navigate = useNavigate();
+    const disPatch = useDispatch();
+
 
 
     const email = useRef(null);
@@ -16,6 +22,7 @@ const Login = () => {
     console.log('rendered');
 
     const handleClickButton = () => {
+
         const currentValue = {
             email: email.current.value,
             password: password.current.value,
@@ -27,7 +34,20 @@ const Login = () => {
         if (!isSignin) {
             createUserWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
                 const user = userCredential.user;
-                console.log(user);
+                updateProfile(user, {
+                    displayName: currentValue.fullName,
+                    photoURL: "https://avatars.githubusercontent.com/u/77773368?v=4"
+
+                }).then(() => {
+
+                    const { uid, email, displayName, photoURL } = auth.currentUser
+                    disPatch((addUser({ uid, email, displayName, photoURL })))
+                    navigate('/browse')
+
+                }).catch((error) => {
+                    setIsErrorMessage(error.message);
+                });
+
             }).catch((error) => {
                 const errorCode = error.customData._tokenResponse.error.code;
                 const errorMessage = error.message
@@ -35,8 +55,9 @@ const Login = () => {
             });
         } else {
             signInWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
-                const user = userCredential.user;
-                console.log(user);
+                userCredential.user;
+                navigate('/browse')
+
             }).catch((error) => {
                 const errorMessage = error.message
                 setIsErrorMessage(errorMessage)
