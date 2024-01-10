@@ -3,14 +3,14 @@ import Header from './Header';
 import { checkValidData } from '../utils/validate';
 import { auth } from '../utils/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USER_AVATAR, LOGINBG } from '../utils/constants';
 
 const Login = () => {
     const [isSignin, setIsSignin] = useState(true);
     const [isErrorMessage, setIsErrorMessage] = useState(null);
-    const navigate = useNavigate();
+
     const disPatch = useDispatch();
 
 
@@ -36,13 +36,12 @@ const Login = () => {
                 const user = userCredential.user;
                 updateProfile(user, {
                     displayName: currentValue.fullName,
-                    photoURL: "https://avatars.githubusercontent.com/u/77773368?v=4"
+                    photoURL: USER_AVATAR 
 
                 }).then(() => {
 
                     const { uid, email, displayName, photoURL } = auth.currentUser
                     disPatch((addUser({ uid, email, displayName, photoURL })))
-                    navigate('/browse')
 
                 }).catch((error) => {
                     setIsErrorMessage(error.message);
@@ -56,7 +55,6 @@ const Login = () => {
         } else {
             signInWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
                 userCredential.user;
-                navigate('/browse')
 
             }).catch((error) => {
                 const errorMessage = error.message
@@ -75,7 +73,7 @@ const Login = () => {
         <div>
             <Header />
             <div className="absolute">
-                <img src="https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/eab6047a-a101-4a14-8515-c67563fa2205/US-en-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="BG" />
+                <img src={LOGINBG} alt="BG" />
 
             </div>
             <div>

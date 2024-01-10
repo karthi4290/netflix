@@ -15,7 +15,12 @@
  - Created Redux Store with userSlice
  - Implemented Sign out 
  - Update profile api
- - Fetch movies from TMDB 
+ - Fetch movies from TMDB
+ - Bugfix: browse profile update
+ - Bugfix: sign in and sign out redirection(using auth Observer)blocking access to browse page if not logged(re-directing to login) and vice-versa 
+ - Implemented cleanup function(useEffect)
+ - Created Constants
+ - Registered with TMDB to get an access to there API'S.
 
  
 
