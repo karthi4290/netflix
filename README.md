@@ -21,6 +21,7 @@
  - Implemented cleanup function(useEffect)
  - Created Constants
  - Registered with TMDB to get an access to there API'S.
+ - Get data from TMDB now playing movies list API.
 
  
 

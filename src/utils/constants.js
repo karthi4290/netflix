@@ -8,4 +8,5 @@ export const API_OPTIONS = {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMzExZTA5MzM3YjVjNTFlY2RjMGZmODM3ZDNjN2QzNCIsInN1YiI6IjYyZWU3MGQ5MTQwYmFkMDA4MjFhYmZkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kCMEP-DKVEfz7XfbScpiXQS1sANaZ9KkIcPfgOECKsM'
     }
 };
-export const URL = "https://api.themoviedb.org/3/movie/now_playing?page=1"
+export const MOVIES_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1"
+export const TRAILER_URL = "https://api.themoviedb.org/3/movie/"

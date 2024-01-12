@@ -1,30 +1,27 @@
+import UseNowPlayingMovies from "../hooks/useGetNowPlaying";
 import Header from "./Header";
-import { API_OPTIONS, URL } from './../utils/constants';
-import { useEffect } from "react";
-
-
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
-
-    const getNowPlayingMovies = async () => {
-        const data = await fetch(URL, API_OPTIONS);
-        const json= await data.json();
-        console.log(json.results);
-
-    }
-
-    useEffect(() => {
-        console.log('useEffect from browse')
-        getNowPlayingMovies();
-    }, [])
-
-
+    UseNowPlayingMovies();
     return (
-        
+
         <div>
             <Header />
+            <MainContainer/>
+            <SecondaryContainer/>
+            {/* 
+               MainContainer
+                - Video running in the background (video component)
+                - Video title (video title component)
+                 - Buttons(Play & More Info)
+               SecondaryContainer
+                - MovieList * n
+                  - cards * n
+            */}
         </div>
-        
+
     )
 }
 
