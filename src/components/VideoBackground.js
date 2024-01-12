@@ -1,21 +1,17 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import useGetTrailer from '../hooks/useGetTrailer';
+import { useSelector } from "react-redux"
+import useGetTrailerVideo from "../utils/hooks/useGetTrailerVideo";
+import { YOUTUBE_URL } from "../utils/constants";
 
 const VideoBackground = ({ movieId }) => {
-  const trailerId = useSelector(store => store.movies.getTrailer)
-
-  useGetTrailer(movieId);
+  const trailerId = useSelector(store => store.movies.getTrailer);
+  useGetTrailerVideo(movieId);
   return (
     <div>
-      <iframe
-        width="560"
-        height="315"
-        src={`https://www.youtube.com/embed/${trailerId}?si=${trailerId}`}
+      <iframe className="w-full aspect-video"
+        src={`${YOUTUBE_URL}${trailerId}?si=${trailerId}&autoplay=1&mute=1`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       />
-
     </div>
   )
 }

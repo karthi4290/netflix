@@ -15,7 +15,6 @@ const Header = () => {
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log('useeffect rendered from header');
       if (user) {
         const { uid, email, displayName, photoURL } = user;
         dispatch((addUser({ uid, email, displayName, photoURL })));
