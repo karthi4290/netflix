@@ -22,6 +22,14 @@
  - Created Constants
  - Registered with TMDB to get an access to there API'S.
  - Get data from TMDB now playing movies list API.
+ - Created custom hooks
+ - Created slice for movie and trailer data
+ - Updated store with movie and trailer data
+ - Planned maincontaner and secondary container
+ - Embedded youtube video with autoplay and mute
+ - Tailwind CSS for design
+ 
+
 
  
 
