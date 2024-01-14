@@ -38,7 +38,11 @@
  - Embedded youtube video with autoplay and mute
  - Tailwind CSS for design
  - Build secondary component
-
+ - Build Movie List
+ - Build Movie Card
+ - TMDB image CDN URL
+ - Made the browser page UI awesome with Tailwind CSS
+ - Created Popular, Upcoming, and Toprated movie Hooks
 
 
  
