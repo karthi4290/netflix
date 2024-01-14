@@ -11,3 +11,4 @@ export const API_OPTIONS = {
 export const MOVIES_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1"
 export const TRAILER_URL = "https://api.themoviedb.org/3/movie/"
 export const YOUTUBE_URL = "https://www.youtube.com/embed/"
+export const POSTERPATH_URL = "https://image.tmdb.org/t/p/w500/"

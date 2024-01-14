@@ -28,7 +28,8 @@
  - Planned maincontaner and secondary container
  - Embedded youtube video with autoplay and mute
  - Tailwind CSS for design
- 
+ - Build secondary component
+
 
 
  
