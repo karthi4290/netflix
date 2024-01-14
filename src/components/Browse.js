@@ -1,27 +1,25 @@
 
 import useNowPlayingMovies from "../utils/hooks/useNowPlayingMovies";
+import usePopularMovies from "../utils/hooks/usePopularMovies";
+import useTopRatedMovies from "../utils/hooks/useTopRatedMovies";
+import useUpcomingMovies from "../utils/hooks/useUpcomingMovies";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
 
 
 const Browse = () => {
-     useNowPlayingMovies();
+    useNowPlayingMovies();
+    usePopularMovies();
+    useUpcomingMovies();
+    useTopRatedMovies();
     return (
 
         <div>
             <Header />
-            <MainContainer/>
-            <SecondaryContainer/>
-            {/* 
-               MainContainer
-                - Video running in the background (video component)
-                - Video title (video title component)
-                 - Buttons(Play & More Info)
-               SecondaryContainer
-                - MovieList * n
-                  - cards * n
-            */}
+            <MainContainer />
+            <SecondaryContainer />
+          
         </div>
 
     )

@@ -26,6 +26,15 @@
  - Created slice for movie and trailer data
  - Updated store with movie and trailer data
  - Planned maincontaner and secondary container
+   {/* 
+               MainContainer
+                - Video running in the background (video component)
+                - Video title (video title component)
+                 - Buttons(Play & More Info)
+               SecondaryContainer
+                - MovieList * n
+                  - cards * n
+            */}
  - Embedded youtube video with autoplay and mute
  - Tailwind CSS for design
  - Build secondary component

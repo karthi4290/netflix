@@ -8,7 +8,10 @@ export const API_OPTIONS = {
         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMzExZTA5MzM3YjVjNTFlY2RjMGZmODM3ZDNjN2QzNCIsInN1YiI6IjYyZWU3MGQ5MTQwYmFkMDA4MjFhYmZkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.kCMEP-DKVEfz7XfbScpiXQS1sANaZ9KkIcPfgOECKsM'
     }
 };
-export const MOVIES_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1"
+export const MOVIESNOW_URL = "https://api.themoviedb.org/3/movie/now_playing?page=1"
 export const TRAILER_URL = "https://api.themoviedb.org/3/movie/"
 export const YOUTUBE_URL = "https://www.youtube.com/embed/"
 export const POSTERPATH_URL = "https://image.tmdb.org/t/p/w500/"
+export const POPULARMOVIES_URL = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1"
+export const UPCOMINGMOVIES_URL = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1"
+export const TOPRATEDMOVIES_URL = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1"
