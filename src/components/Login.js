@@ -19,7 +19,7 @@ const Login = () => {
     const password = useRef(null);
     const fullName = useRef(null);
 
-    console.log('rendered');
+
 
     const handleClickButton = () => {
 
@@ -54,7 +54,7 @@ const Login = () => {
             });
         } else {
             signInWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
-                userCredential.user;
+                const user = userCredential.user;
 
             }).catch((error) => {
                 const errorMessage = error.message
@@ -77,7 +77,7 @@ const Login = () => {
 
             </div>
             <div>
-                <form onSubmit={(e) => e.preventDefault()} className="absolute p-12 bg-black bg-opacity-85 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg">
+                <form onSubmit={(e) => e.preventDefault()} className="absolute p-12  bg-black bg-opacity-85 w-3/12 my-36 mx-auto right-0 left-0 text-white rounded-lg">
                     <h1 className="font-bold text-3xl py-4">{isSignin ? "Sign In" : "Sign Up"}</h1>
                     {!isSignin && (
                         <input type="text"
