@@ -43,6 +43,7 @@
  - TMDB image CDN URL
  - Made the browser page UI awesome with Tailwind CSS
  - Created Popular, Upcoming, and Toprated movie Hooks
+ - GPT search feature
 
 
  
