@@ -44,6 +44,10 @@
  - Made the browser page UI awesome with Tailwind CSS
  - Created Popular, Upcoming, and Toprated movie Hooks
  - GPT search feature
+ - GPT search Page
+ - GPT search bar
+ - Multi-language feature in our app
+ - Integrate GPT api's
 
 
  
