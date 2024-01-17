@@ -6,8 +6,6 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { USER_AVATAR, LOGINBG } from '../utils/constants';
-import { toggleGptSearchView } from '../utils/gptSlice';
-
 const Login = () => {
     const [isSignin, setIsSignin] = useState(true);
     const [isErrorMessage, setIsErrorMessage] = useState(null);
@@ -35,7 +33,6 @@ const Login = () => {
         if (!isSignin) {
             createUserWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
                 const user = userCredential.user;
-                disPatch(toggleGptSearchView());
                 updateProfile(user, {
                     displayName: currentValue.fullName,
                     photoURL: USER_AVATAR
@@ -57,7 +54,6 @@ const Login = () => {
         } else {
             signInWithEmailAndPassword(auth, currentValue.email, currentValue.password).then((userCredential) => {
                 const user = userCredential.user;
-                disPatch(toggleGptSearchView());
 
             }).catch((error) => {
                 const errorMessage = error.message
