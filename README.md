@@ -48,6 +48,9 @@
  - GPT search bar
  - Multi-language feature in our app
  - Integrate GPT api's
+ - Built movie suggestion list box
+ - Improved performance by avoiding unneccessary API calls if the store has the data already.
+ - Secured confidential data/key's using .env
 
 
  
