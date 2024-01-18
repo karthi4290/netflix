@@ -1,14 +1,18 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS, GPT_TMDBMOVIES_URL } from "../constants";
 import { addGptMovies } from "../gptSlice";
-import openai from "../openAI"
 import { useRef } from "react";
+import useConfigOpenAI from './../openAI';
+import { setVisible } from "../configSlice";
 
 
 
 const useFetchGptSearchTmdbMovies = () => {
     const gptInputref = useRef(null);
     const dispatch = useDispatch();
+    const { openAI } = useConfigOpenAI();
+    const openai = openAI();
+
 
     const tmdbFetchMovies = async (movie) => {
         const data = await fetch(GPT_TMDBMOVIES_URL + movie + "&include_adult=false&language=en-US&page=1", API_OPTIONS);
@@ -35,6 +39,7 @@ const useFetchGptSearchTmdbMovies = () => {
             dispatch(addGptMovies({ movie: movieList, tmdb: tmdbResults }));
         } catch (error) {
             console.error('Error in handleSearchGptClick:', error);
+            dispatch(setVisible(true));
         }
 
 
