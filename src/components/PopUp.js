@@ -13,9 +13,8 @@ const PopUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(setOpenAIKey(inputRef?.current?.value));
-        openAI();
         dispatch(setVisible(false));
-
+        openAI();
     }
 
     return (
@@ -36,6 +35,9 @@ const PopUp = () => {
                 <div className="text-center">
                     <button type="submit" className="px-5 py-2 bg-gray-700 text-white rounded">
                         Submit
+                    </button>
+                    <button className=" text-gray-500 ml-5 hover:text-gray-700">
+                        ❌
                     </button>
                 </div>
             </form>
