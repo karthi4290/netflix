@@ -10,18 +10,20 @@ import { useSelector } from 'react-redux';
 const GptSearchPage = () => {
   const visible = useSelector(store => store.config.visible);
   return (
-    <div>
+    <>
       <div className="fixed -z-10">
-        <img src={LOGINBG} alt="BG" />
+        <img className="h-screen md:w-screen object-cover" src={LOGINBG} alt="BG" />
       </div>
-      {visible ? <PopUp /> :
-        <>
-          <GptSearchBar />
-          <GptMovieSuggestionBox />
-        </>
-      }
+      <div>
+        {visible ? <PopUp /> :
+          <>
+            <GptSearchBar />
+            <GptMovieSuggestionBox />
+          </>
+        }
+      </div>
 
-    </div>
+    </>
   )
 }
 

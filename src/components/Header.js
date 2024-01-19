@@ -49,11 +49,11 @@ const Header = () => {
 
 
   return (
-    <div className="absolute flex justify-between w-full  px-8 py-2 bg-gradient-to-b from-black z-10">
-      <img className="w-44" src={LOGO} alt="Netflix Logo" />
+    <div className="absolute flex justify-between w-full   md:px-8 md:py-4 bg-gradient-to-b from-black z-10 flex-col md:flex-row">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="Netflix Logo" />
       {user &&
         <div className=" flex p-4 ">
-          {gptSearchPage && <select onChange={handleSelectLang} className="p-2 bg-gray-900 text-white rounded-lg outline-none">
+          {gptSearchPage && <select onChange={handleSelectLang} className="p-1 bg-gray-900 text-white rounded-lg outline-none">
             {SUPPORTED_LANGUAGES.map(lang => <option key={lang.identifier}>{lang.name}</option>)}
           </select>}
 
