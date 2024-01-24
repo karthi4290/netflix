@@ -54,6 +54,7 @@
  - Secured confidential data/key's using .env
  - Built Dynamic openAI key Popup form submit
  - Built Mobile responsive
+ - Built navigation arrows for slider and disabled the arrows accordingly by taking the reference of DOM elements.
 
 
  
