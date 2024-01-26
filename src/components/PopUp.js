@@ -20,7 +20,7 @@ const PopUp = () => {
     return (
         <div className={overlay}>
 
-            <form onSubmit={handleSubmit} className="bg-gray-800 p-4 m-4 md:p-8 rounded-lg md:w-2/4">
+            <form onSubmit={handleSubmit} className="bg-black  p-4 m-4 md:p-8 rounded-lg md:w-2/4">
                 <h1 className=" font-medium md:font-semibold text-center md:text-xl mb-5 text-white">
                     ❄OpenAI key is expired. Enter new key, to continue access.
                 </h1>
@@ -35,9 +35,6 @@ const PopUp = () => {
                 <div className="text-center">
                     <button type="submit" className=" px-5 py-2 bg-green-500 text-white rounded">
                         Submit
-                    </button>
-                    <button className=" text-gray-500 ml-5 hover:text-gray-700">
-                        ❌
                     </button>
                 </div>
             </form>
